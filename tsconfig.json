@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "target": "ES2024",
+        "module": "Node18",
+        "moduleResolution": "Node16",
+        "verbatimModuleSyntax": true,
+
+        "declaration": true,
+        "emitDeclarationOnly": true,
+
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "baseUrl": "./src",
+
+        "paths": {
+            "@cli/*": [ "./cli/*" ],
+            "@lib/*": [ "./lib/*" ],
+            "@/*": [ "./*" ]
+        }
+    }
+}

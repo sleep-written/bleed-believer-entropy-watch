@@ -1,0 +1,57 @@
+{
+    "name": "@bleed-believer/entropy-watch",
+    "version": "0.0.0",
+    "description": "Minimal, multiplatform and deterministic file watcher",
+
+    "type": "module",
+    "types": "./dist/index.d.ts",
+    "files": [ "dist" ],
+    "module": "./dist/index.js",
+    "engines": {
+        "node": ">=22.2.0"
+    },
+    "scripts": {
+        "build:tsc": "tsc -p tsconfig.build.json",
+        "build:swc-src": "swc ./src -d ./dist --strip-leading-paths",
+        "build:swc-dist": "swc ./src -d ./dist --strip-leading-paths --config-file .build.swcrc",
+        "test": "node --run clean && node --run build:swc-src  && node --run build:tsc && ava",
+        "build": "node --run clean && node --run build:swc-dist && node --run build:tsc",
+        "clean": "rm -rf ./dist",
+        "check": "tsc --noEmit",
+        "prepare": "node --run check && node --run test && node --run build"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./utils": {
+            "types": "./dist/utils.d.ts",
+            "import": "./dist/utils.js"
+        }
+    },
+    "keywords": [
+        "fs",
+        "watch",
+        "watchFile",
+        "watcher",
+        "watching",
+        "file",
+        "hash",
+        "fsevents"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sleep-written/bleed-believer-entropy-watch.git"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "devDependencies": {
+        "@swc/cli": "^0.7.9",
+        "@swc/core": "^1.15.1",
+        "@types/node": "^24.10.1",
+        "ava": "^6.4.1",
+        "typescript": "^5.9.3"
+    }
+}
