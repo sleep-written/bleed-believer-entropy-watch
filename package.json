@@ -2,10 +2,11 @@
     "name": "@bleed-believer/entropy-watch",
     "version": "0.0.0",
     "description": "Minimal, multiplatform and deterministic file watcher",
-
     "type": "module",
     "types": "./dist/index.d.ts",
-    "files": [ "dist" ],
+    "files": [
+        "dist"
+    ],
     "module": "./dist/index.js",
     "engines": {
         "node": ">=22.2.0"
@@ -49,7 +50,7 @@
     },
     "devDependencies": {
         "@swc/cli": "^0.7.9",
-        "@swc/core": "^1.15.1",
+        "@swc/core": "^1.15.2",
         "@types/node": "^24.10.1",
         "ava": "^6.4.1",
         "typescript": "^5.9.3"
